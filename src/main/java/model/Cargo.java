@@ -9,12 +9,17 @@ public class Cargo {
     private float weight;
     private String status;
 
-    public Cargo(long id, String name, float weight, String status) {
+    public Cargo(String name, double weight, String status) {
+        this.name = name;
+        this.weight = (float) weight;
+        this.status = status;
+    }
+/*    public Cargo(long id, String name, float weight, String status) {
         this.id = id;
         this.name = name;
         this.weight = weight;
         this.status = status;
-    }
+    }*/
 
     public void setId(long id) {
         this.id = id;

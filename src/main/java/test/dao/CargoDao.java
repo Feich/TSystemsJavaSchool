@@ -12,11 +12,11 @@ public class CargoDao {
     private static final AtomicLong AUTO_ID = new AtomicLong(0);
     private static Map<Long, Cargo> cargoes = new HashMap<>();
 
-    static {
+/*    static {
         Cargo cargo1 = new Cargo(AUTO_ID.getAndIncrement(), "cargo1", 1.1F, "OK");
         Cargo cargo2 = new Cargo(AUTO_ID.getAndIncrement(), "cargo2", 1.2F, "OK");
         Cargo cargo3 = new Cargo(AUTO_ID.getAndIncrement(), "cargo3", 1.3F, "OK");
-    }
+    }*/
 
     public List<Cargo> allCargoes() {
         return new ArrayList<>(cargoes.values());
@@ -27,7 +27,7 @@ public class CargoDao {
         cargoes.put(cargo.getId(), cargo);
     }
 
-    public static void delete(Cargo cargo) {
+    public void delete(Cargo cargo) {
         cargoes.remove(cargo.getId());
     }
 

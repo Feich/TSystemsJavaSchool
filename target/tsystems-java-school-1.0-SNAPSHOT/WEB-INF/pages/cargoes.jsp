@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Feich
@@ -8,9 +9,32 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>CARGOES</title>
 </head>
-<body>
-    ${cargo}
+<h1>Cargoes</h1>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>weight</th>
+        <th>status</th>
+    </tr>
+<c:forEach var = "cargo" items = "${cargoesList}">
+    <tr>
+        <td>${cargo.id}</td>
+        <td>${cargo.name}</td>
+        <td>${cargo.weight}</td>
+        <td>${cargo.status}</td>
+        <td>
+            <a href="/editCargo/${cargo.id}">edit</a>
+            <a href="/deleteCargo/${cargo.id}">delete</a>
+        </td>
+    </tr>
+</c:forEach>
+</table>
+
+<h2>Add</h2>
+<c:url value="/addCargo" var="add"/>
+<a href="${add}">Add new cargo</a>
 </body>
 </html>

@@ -17,6 +17,14 @@ public class CargoService {
     }
 
     public void delete(Cargo cargo) {
-        CargoDao.delete(cargo);
+        cargoDao.delete(cargo);
+    }
+
+    public void  edit(Cargo cargo) {
+        cargoDao.edit(cargo);
+    }
+
+    public  Cargo getById(Long id) {
+        return cargoDao.getById(id);
     }
 }
