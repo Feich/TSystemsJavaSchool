@@ -13,7 +13,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="TSystemsJavaSchool" />
+          <factory-entry name="TSystemsJavaSchool" value="bb1f928e-12c6-4c04-aaa8-fcc555b589ba" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
@@ -32,14 +32,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-web:5.3.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.2.12.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.2.12.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.2.12.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.2.12.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.2.12.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.2.12.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.2.12.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-web:5.2.12.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.4.27.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.4.1.Final" level="project" />
     <orderEntry type="library" name="Maven: javax.persistence:javax.persistence-api:2.2" level="project" />
@@ -62,5 +62,10 @@
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:4.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-orm:5.2.12.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.2.12.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.2.12.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-dbcp:10.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-juli:10.0.0" level="project" />
   </component>
 </module>

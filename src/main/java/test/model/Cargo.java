@@ -1,13 +1,26 @@
-package model;
+package test.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "cargo")
 public class Cargo {
-    private long id;
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "weight")
     private float weight;
+
+    @Column(name = "status")
     private String status;
+
+    public Cargo() {}
 
     public Cargo(String name, double weight, String status) {
         this.name = name;
@@ -21,7 +34,7 @@ public class Cargo {
         this.status = status;
     }*/
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,7 +50,7 @@ public class Cargo {
         this.status = status;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

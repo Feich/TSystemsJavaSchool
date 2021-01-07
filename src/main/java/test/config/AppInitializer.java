@@ -8,12 +8,12 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
         CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
         characterEncodingFilter.setEncoding("UTF-8");
         characterEncodingFilter.setForceEncoding(true);
-        return new javax.servlet.Filter[] {characterEncodingFilter};
+        return new javax.servlet.Filter[]{characterEncodingFilter};
     }
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[0];
+        return new Class[]{HibernateConfig.class};
     }
 
     @Override
@@ -25,5 +25,6 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
+
 
 }

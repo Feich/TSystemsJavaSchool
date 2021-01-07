@@ -34,7 +34,7 @@
 </table>
 
 <h2>Add</h2>
-<c:url value="/addCargo" var="add"/>
-<a href="${add}">Add new cargo</a>
+<c:url value="/addCargo" var="addCargo"/>
+<a href="${addCargo}">Add new cargo</a>
 </body>
 </html>

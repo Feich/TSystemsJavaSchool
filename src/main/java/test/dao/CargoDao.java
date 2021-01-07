@@ -1,41 +1,48 @@
 package test.dao;
 
-import model.Cargo;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import test.model.Cargo;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-
+@Repository("dao")
 public class CargoDao {
-    private static final AtomicLong AUTO_ID = new AtomicLong(0);
-    private static Map<Long, Cargo> cargoes = new HashMap<>();
+    private SessionFactory sessionFactory;
 
-/*    static {
-        Cargo cargo1 = new Cargo(AUTO_ID.getAndIncrement(), "cargo1", 1.1F, "OK");
-        Cargo cargo2 = new Cargo(AUTO_ID.getAndIncrement(), "cargo2", 1.2F, "OK");
-        Cargo cargo3 = new Cargo(AUTO_ID.getAndIncrement(), "cargo3", 1.3F, "OK");
-    }*/
+    @Autowired
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
+    @SuppressWarnings("unchecked")
     public List<Cargo> allCargoes() {
-        return new ArrayList<>(cargoes.values());
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Cargo").list();
     }
 
     public void add(Cargo cargo) {
-        cargo.setId(AUTO_ID.getAndIncrement());
-        cargoes.put(cargo.getId(), cargo);
+        Session session = sessionFactory.getCurrentSession();
+        session.persist(cargo);
     }
 
     public void delete(Cargo cargo) {
-        cargoes.remove(cargo.getId());
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(cargo);
     }
 
     public void edit(Cargo cargo) {
-        cargoes.put(cargo.getId(), cargo);
+        Session session = sessionFactory.getCurrentSession();
+        session.update(cargo);
     }
 
-    public Cargo getById(long id) {
-        return cargoes.get(id);
+    public Cargo getById(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Cargo.class, id);
     }
 }

@@ -1,6 +1,7 @@
 package test.controller;
 
-import model.Cargo;
+import test.model.Cargo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -10,7 +11,12 @@ import java.util.List;
 
 @Controller
 public class TrucksAndCargoesController {
-    private CargoService cargoService = new CargoService();
+    private CargoService cargoService;
+
+    @Autowired
+    public void setCargoService(CargoService cargoService) {
+        this.cargoService = cargoService;
+    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView allTrucks() {
@@ -28,8 +34,8 @@ public class TrucksAndCargoesController {
         return modelAndView;
     }
 
-    @GetMapping(value = "/editCargo{id}")
-    public  ModelAndView editCargoPage(@PathVariable long id) {
+    @GetMapping(value = "/editCargo/{id}")
+    public  ModelAndView editCargoPage(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editCargo");
         modelAndView.addObject("cargo", cargoService.getById(id));
@@ -37,10 +43,10 @@ public class TrucksAndCargoesController {
     }
 
     @PostMapping(value = "/editCargo")
-    public  ModelAndView editCargo(@ModelAttribute Cargo cargo) {
+    public  ModelAndView editCargo(@ModelAttribute("cargo") Cargo cargo) {
+        cargoService.edit(cargo);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cargoes");
-        cargoService.edit(cargo);
         return modelAndView;
     }
 
@@ -60,7 +66,7 @@ public class TrucksAndCargoesController {
     }
 
     @GetMapping(value = "/deleteCargo/{id}")
-    public ModelAndView deleteCargo(@PathVariable long id) {
+    public ModelAndView deleteCargo(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cargoes");
         cargoService.delete(cargoService.getById(id));
