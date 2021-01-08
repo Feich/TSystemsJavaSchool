@@ -6,6 +6,8 @@ import javax.persistence.*;
 @Table(name = "cargo")
 public class Cargo {
 
+    enum CargoStatus {PREPARED, SHIPPED, DELIVERED}
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,16 +20,17 @@ public class Cargo {
     private float weight;
 
     @Column(name = "status")
-    private String status;
+    @Enumerated(value = EnumType.STRING)
+    private CargoStatus status;
 
     public Cargo() {}
 
-    public Cargo(String name, double weight, String status) {
+/*    public Cargo(String name, double weight, String status) {
         this.name = name;
         this.weight = (float) weight;
         this.status = status;
-    }
-/*    public Cargo(long id, String name, float weight, String status) {
+    }*/
+/*    public Cargo(Long id, String name, float weight, String status) {
         this.id = id;
         this.name = name;
         this.weight = weight;
@@ -47,7 +50,7 @@ public class Cargo {
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        this.status = CargoStatus.valueOf(status);
     }
 
     public Long getId() {
@@ -63,7 +66,7 @@ public class Cargo {
     }
 
     public String getStatus() {
-        return status;
+        return String.valueOf(status);
     }
 
     @Override

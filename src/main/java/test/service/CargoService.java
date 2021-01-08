@@ -17,7 +17,7 @@ public class CargoService {
         this.cargoDao = cargoDao;
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Cargo> allCargoes() {
         return cargoDao.allCargoes();
     }

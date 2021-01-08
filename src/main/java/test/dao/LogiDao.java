@@ -2,7 +2,8 @@ package test.dao;
 
 import java.util.List;
 
-public interface LogiDao {
-    List<? extends Object> allObjects();
+public interface LogiDao<T> {
+    List<T> allObjects();
+    void add(T t);
 
 }

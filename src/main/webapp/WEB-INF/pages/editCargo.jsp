@@ -17,15 +17,15 @@
     </c:if>
 </head>
 <body>
-<c:if test="${empty cargo.name}">
+<c:if test="${empty cargo.id}">
     <c:url value="/addCargo" var="var"/>
 </c:if>
-<c:if test="${!empty cargo.name}">
+<c:if test="${!empty cargo.id}">
     <c:url value="/editCargo" var="var"/>
 </c:if>
 <form action = "${var}" method = "POST">
-    <c:if test="${empty cargo.name}">
-    <input type="hidden" name="id" value="${cargo.id}">
+    <c:if test="${!empty cargo.id}">
+        <input type="hidden" name="id" value="${cargo.id}">
     </c:if>
     <label for = "name">Name</label>
     <input type="text" name="name" id="name">
