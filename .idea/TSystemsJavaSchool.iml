@@ -6,6 +6,7 @@
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
+        <sourceRoots />
       </configuration>
     </facet>
     <facet type="jpa" name="JPA">
@@ -14,12 +15,19 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="TSystemsJavaSchool" value="bb1f928e-12c6-4c04-aaa8-fcc555b589ba" />
+          <factory-entry name="entityManagerFactory" value="bb1f928e-12c6-4c04-aaa8-fcc555b589ba" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
       <configuration />
+    </facet>
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map />
+        <naming-strategy-map />
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
@@ -67,5 +75,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.2.12.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-dbcp:10.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-juli:10.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.4.27.Final" level="project" />
   </component>
 </module>

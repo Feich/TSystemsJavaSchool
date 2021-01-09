@@ -32,7 +32,11 @@
     <label for = "weight">Weight</label>
     <input type="text" name="weight" id="weight">
     <label for = "status">Status</label>
-    <input type="text" name="status" id="status">
+    <select name="status" id = "status">
+        <option value="PREPARED">PREPARED</option>
+        <option value="SHIPPED">SHIPPED</option>
+        <option value="DELIVERED">DELIVERED</option>
+    </select>
     <c:if test="${empty cargo.name}">
         <input type="submit" value="add cargo">
     </c:if>
