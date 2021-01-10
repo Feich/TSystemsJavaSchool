@@ -36,5 +36,8 @@
 <h2>Add</h2>
 <c:url value="/addCargo" var="addCargo"/>
 <a href="${addCargo}">Add new cargo</a>
+<h2>Trucks</h2>
+<c:url value="/" var="trucks"/>
+<a href="${trucks}">Trucks</a>
 </body>
 </html>

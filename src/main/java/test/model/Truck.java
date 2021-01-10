@@ -23,6 +23,9 @@ public class Truck {
     @Column(name = "capacity")
     private double capacity;
 
+    @Column(name = "current_city")
+    private String currentCity;
+
     @Column(name = "status")
     @Enumerated(value = EnumType.STRING)
     private TruckStatus status;
@@ -46,6 +49,10 @@ public class Truck {
 
     public double getCapacity() {
         return capacity;
+    }
+
+    public String getCurrentCity() {
+        return currentCity;
     }
 
     public TruckStatus getStatus() {
@@ -74,6 +81,10 @@ public class Truck {
 
     public void setCapacity(double capacity) {
         this.capacity = capacity;
+    }
+
+    public void setCurrentCity(String currentCity) {
+        this.currentCity = currentCity;
     }
 
     public void setCargoes(Set<Cargo> cargoes) {
