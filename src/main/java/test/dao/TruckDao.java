@@ -4,9 +4,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Repository;
 import test.model.Cargo;
 import test.model.Truck;
+import test.service.exception.TruckNumberException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @Repository
@@ -21,8 +24,12 @@ public class TruckDao {
         return entityManager.createQuery("from Truck").getResultList();
     }
 
-    public void add(Truck truck) {
-        entityManager.persist(truck);
+    public void add(Truck truck) throws TruckNumberException {
+        try {
+            entityManager.persist(truck);
+        } catch (Exception e) {
+            throw new TruckNumberException("Duplicating truck number: " + truck.getNumber());
+        }
     }
 
     public void delete(Truck truck) {

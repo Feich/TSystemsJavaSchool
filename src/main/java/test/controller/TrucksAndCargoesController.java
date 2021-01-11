@@ -1,5 +1,8 @@
 package test.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.server.ResponseStatusException;
 import test.model.Cargo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import test.model.Truck;
 import test.service.CargoService;
 import test.service.TruckService;
+import test.service.exception.TruckNumberException;
 
 import java.util.List;
 
@@ -109,8 +113,12 @@ public class TrucksAndCargoesController {
     @PostMapping(value = "/addTruck")
     public  ModelAndView addTruck(@ModelAttribute Truck truck) {
         ModelAndView modelAndView = new ModelAndView();
+        try {
+            truckService.add(truck);
+        } catch (TruckNumberException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+        }
         modelAndView.setViewName("redirect:/");
-        truckService.add(truck);
         return modelAndView;
     }
 
@@ -121,4 +129,9 @@ public class TrucksAndCargoesController {
         truckService.delete(truckService.getById(id));
         return modelAndView;
     }
+/*
+    @ExceptionHandler(TruckNumberException.class)
+    public ResponseEntity<String> handleException(TruckNumberException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
+    }*/
 }
