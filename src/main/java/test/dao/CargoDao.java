@@ -35,4 +35,9 @@ public class CargoDao {
     public Cargo getById(Long id) {
         return entityManager.find(Cargo.class, id);
     }
+
+/*    @SuppressWarnings("unchecked")
+    public List<Cargo> cargoesForTruck(Long id) {
+        return entityManager.createQuery("from Cargo where truckId = " + id).getResultList();
+    }*/
 }

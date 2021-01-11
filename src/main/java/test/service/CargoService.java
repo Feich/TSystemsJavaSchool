@@ -41,4 +41,9 @@ public class CargoService {
     public  Cargo getById(Long id) {
         return cargoDao.getById(id);
     }
+
+/*    @Transactional(readOnly = true)
+    public List<Cargo> cargoesForTruck(Long id) {
+        return  cargoDao.cargoesForTruck(id);
+    }*/
 }

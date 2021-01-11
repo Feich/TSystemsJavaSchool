@@ -20,6 +20,8 @@
         <th>Shift Size</th>
         <th>Current City</th>
         <th>Status</th>
+        <th>Cargoes</th>
+        <th>Options</th>
     </tr>
     <c:forEach var = "truck" items = "${trucksList}">
         <tr>
@@ -29,6 +31,9 @@
             <td>${truck.driverShiftSize}</td>
             <td>${truck.currentCity}</td>
             <td>${truck.status}</td>
+            <td>
+                <a href="/cargoes/${truck.id}">cargoes</a>
+            </td>
             <td>
                 <a href="/editTruck/${truck.id}">edit</a>
                 <a href="/deleteTruck/${truck.id}">delete</a>

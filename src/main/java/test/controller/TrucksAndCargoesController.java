@@ -1,7 +1,7 @@
 package test.controller;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 import test.model.Cargo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +13,7 @@ import test.service.CargoService;
 import test.service.TruckService;
 import test.service.exception.TruckNumberException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -42,6 +43,16 @@ public class TrucksAndCargoesController {
     @RequestMapping(value = "/cargoes", method = RequestMethod.GET)
     public ModelAndView allCargoes() {
         List<Cargo> cargoes = cargoService.allCargoes();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("cargoes");
+        modelAndView.addObject("cargoesList", cargoes);
+        return modelAndView;
+    }
+
+    @Transactional
+    @RequestMapping(value = "/cargoes/{id}", method = RequestMethod.GET)
+    public ModelAndView thisCargoes(@PathVariable Long id) {
+        List<Cargo> cargoes = new ArrayList<>(truckService.getById(id).getCargoes());
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("cargoes");
         modelAndView.addObject("cargoesList", cargoes);

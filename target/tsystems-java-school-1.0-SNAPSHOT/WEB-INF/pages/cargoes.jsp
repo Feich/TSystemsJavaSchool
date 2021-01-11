@@ -14,10 +14,11 @@
 <h1>Cargoes</h1>
 <table>
     <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>weight</th>
-        <th>status</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Status</th>
+        <th>Truck Id</th>
     </tr>
 <c:forEach var = "cargo" items = "${cargoesList}">
     <tr>
@@ -25,6 +26,7 @@
         <td>${cargo.name}</td>
         <td>${cargo.weight}</td>
         <td>${cargo.status}</td>
+        <td>${cargo.truck.number}</td>
         <td>
             <a href="/editCargo/${cargo.id}">edit</a>
             <a href="/deleteCargo/${cargo.id}">delete</a>
@@ -36,5 +38,8 @@
 <h2>Add</h2>
 <c:url value="/addCargo" var="addCargo"/>
 <a href="${addCargo}">Add new cargo</a>
+<h2>Trucks</h2>
+<c:url value="/" var="trucks"/>
+<a href="${trucks}">Trucks</a>
 </body>
 </html>
