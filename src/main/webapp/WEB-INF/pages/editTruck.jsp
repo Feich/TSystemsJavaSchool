@@ -48,5 +48,10 @@
     </c:if>
 
 </form>
+
+<c:if test="${!empty message}">
+    <br>
+    <span style="color: #ff0000; font-size: medium; "> ${message}</span>
+</c:if>
 </body>
 </html>

@@ -28,7 +28,7 @@ public class TruckDao {
         try {
             entityManager.persist(truck);
         } catch (Exception e) {
-            throw new TruckNumberException("Duplicating truck number: " + truck.getNumber());
+            throw new TruckNumberException("Duplicated truck number: " + truck.getNumber());
         }
     }
 

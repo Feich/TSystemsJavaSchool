@@ -6,6 +6,7 @@ import test.model.Cargo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -36,8 +37,10 @@ public class CargoDao {
         return entityManager.find(Cargo.class, id);
     }
 
-/*    @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     public List<Cargo> cargoesForTruck(Long id) {
-        return entityManager.createQuery("from Cargo where truckId = " + id).getResultList();
-    }*/
+        Query query = entityManager.createNativeQuery("select * from Cargo where truck_id = ?", Cargo.class);
+        query.setParameter(1, id);
+        return query.getResultList();
+    }
 }

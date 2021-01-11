@@ -49,10 +49,9 @@ public class TrucksAndCargoesController {
         return modelAndView;
     }
 
-    @Transactional
     @RequestMapping(value = "/cargoes/{id}", method = RequestMethod.GET)
     public ModelAndView thisCargoes(@PathVariable Long id) {
-        List<Cargo> cargoes = new ArrayList<>(truckService.getById(id).getCargoes());
+        List<Cargo> cargoes = cargoService.cargoesForTruck(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("cargoes");
         modelAndView.addObject("cargoesList", cargoes);
@@ -127,7 +126,9 @@ public class TrucksAndCargoesController {
         try {
             truckService.add(truck);
         } catch (TruckNumberException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+            modelAndView.setViewName("editTruck");
+            modelAndView.addObject("message", e.getMessage());
+            return modelAndView;
         }
         modelAndView.setViewName("redirect:/");
         return modelAndView;
@@ -140,9 +141,4 @@ public class TrucksAndCargoesController {
         truckService.delete(truckService.getById(id));
         return modelAndView;
     }
-/*
-    @ExceptionHandler(TruckNumberException.class)
-    public ResponseEntity<String> handleException(TruckNumberException e) {
-        return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
-    }*/
 }

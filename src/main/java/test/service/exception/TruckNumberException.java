@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
-public class TruckNumberException extends Exception {
+public class TruckNumberException extends RuntimeException {
 
     public  TruckNumberException() {}
     public TruckNumberException(String s) {
