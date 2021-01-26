@@ -9,41 +9,42 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>CARGOES</title>
+    <title>DRIVERS</title>
 </head>
-<h1>Cargoes</h1>
+<body>
+<h1>Drivers</h1>
 <table>
     <tr>
         <th>Id</th>
         <th>Name</th>
-        <th>Weight</th>
+        <th>Surname</th>
+        <th>PhoneNumber</th>
+        <th>Hours</th>
         <th>Status</th>
+        <th>City</th>
         <th>Truck</th>
-        <th>Order</th>
-        <th>Shipment</th>
-        <th>Discharge</th>
     </tr>
-<c:forEach var = "cargo" items = "${cargoesList}">
-    <tr>
-        <td>${cargo.id}</td>
-        <td>${cargo.name}</td>
-        <td>${cargo.weight}</td>
-        <td>${cargo.status}</td>
-        <td>${cargo.truck.number}</td>
-        <td>${cargo.order.id}</td>
-        <td>${cargo.shipmentPoint.city}</td>
-        <td>${cargo.dischargePoint.city}</td>
-        <td>
-            <a href="/editCargo/${cargo.id}">edit</a>
-            <a href="/deleteCargo/${cargo.id}">delete</a>
-        </td>
-    </tr>
-</c:forEach>
+    <c:forEach var = "driver" items = "${driversList}">
+        <tr>
+            <td>${driver.id}</td>
+            <td>${driver.name}</td>
+            <td>${driver.surname}</td>
+            <td>${driver.phoneNumber}</td>
+            <td>${driver.hours}</td>
+            <td>${driver.status}</td>
+            <td>${driver.currentCity}</td>
+            <td>${driver.truck.number}</td>
+            <td>
+                <a href="/editDriver/${driver.id}">edit</a>
+                <a href="/deleteDriver/${driver.id}">delete</a>
+            </td>
+        </tr>
+    </c:forEach>
 </table>
 
 <h2>Add</h2>
-<c:url value="/addCargo" var="addCargo"/>
-<a href="${addCargo}">Add new cargo</a>
+<c:url value="/addDriver" var="addDriver"/>
+<a href="${addDriver}">Add new driver</a>
 <p>
     <c:url value="/trucks" var="trucks"/>
     <a href="${trucks}">Trucks</a>

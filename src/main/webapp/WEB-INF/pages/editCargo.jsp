@@ -31,6 +31,14 @@
     <input type="text" name="name" id="name">
     <label for = "weight">Weight</label>
     <input type="text" name="weight" id="weight">
+    <label for = "truck">Truck</label>
+    <input type="text" name="truck" id="truck">
+    <label for = "order">Order</label>
+    <input type="text" name="order" id="order">
+    <label for = "shipmentPoint">Shipment Point</label>
+    <input type="text" name="shipmentPoint" id="shipmentPoint">
+    <label for = "dischargePoint">Discharge Point</label>
+    <input type="text" name="dischargePoint" id="dischargePoint">
     <label for = "status">Status</label>
     <select name="status" id = "status">
         <option value="PREPARED">PREPARED</option>

@@ -9,42 +9,42 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>TRUCKS</title>
+    <title>ROUTE POINTS</title>
 </head>
-<h1>Trucks</h1>
+<body>
+<h1>Route Points</h1>
 <table>
     <tr>
         <th>Id</th>
-        <th>Number</th>
-        <th>Capacity</th>
-        <th>Shift Size</th>
-        <th>Current City</th>
-        <th>Status</th>
-        <th>Cargoes</th>
-        <th>Options</th>
+        <th>City</th>
+        <th>Cargoes for shipment</th>
+        <th>Cargoes for discharge</th>
+        <th>Order</th>
     </tr>
-    <c:forEach var = "truck" items = "${trucksList}">
+    <c:forEach var = "routePoint" items = "${routePointsList}">
         <tr>
-            <td>${truck.id}</td>
-            <td>${truck.number}</td>
-            <td>${truck.capacity}</td>
-            <td>${truck.driverShiftSize}</td>
-            <td>${truck.currentCity}</td>
-            <td>${truck.status}</td>
+            <td>${routePoint.id}</td>
+            <td>${routePoint.city}</td>
             <td>
-                <a href="/cargoes/${truck.id}">cargoes</a>
+                <a href="/cargoesForShipment/${routePoint.id}">Cargoes</a>
             </td>
             <td>
-                <a href="/editTruck/${truck.id}">edit</a>
-                <a href="/deleteTruck/${truck.id}">delete</a>
+                <a href="/cargoesForDischarge/${routePoint.id}">Cargoes</a>
+            </td>
+            <td>
+                <a href="/orderByRoutePoint/${routePoint.id}">Order</a>
+            </td>
+            <td>
+                <a href="/editRoutePoint/${routePoint.id}">edit</a>
+                <a href="/deleteRoutePoint/${routePoint.id}">delete</a>
             </td>
         </tr>
     </c:forEach>
 </table>
 
 <h2>Add</h2>
-<c:url value="/addTruck" var="addTruck"/>
-<a href="${addTruck}">Add new truck</a>
+<c:url value="/addRoutePoint" var="addRoutePoint"/>
+<a href="${addRoutePoint}">Add new routePoint</a>
 <p>
     <c:url value="/trucks" var="trucks"/>
     <a href="${trucks}">Trucks</a>
@@ -57,4 +57,5 @@
     <c:url value="/routePoints" var="routePoints"/>
     <a href="${routePoints}">Route Points</a>
 </p>
+</body>
 </html>

@@ -9,42 +9,46 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>TRUCKS</title>
+    <title>ORDERS</title>
 </head>
-<h1>Trucks</h1>
+<body>
+<h1>Orders</h1>
 <table>
     <tr>
         <th>Id</th>
-        <th>Number</th>
-        <th>Capacity</th>
-        <th>Shift Size</th>
-        <th>Current City</th>
         <th>Status</th>
+        <th>Truck</th>
         <th>Cargoes</th>
-        <th>Options</th>
+        <th>Drivers</th>
+        <th>RoutePoints</th>
     </tr>
-    <c:forEach var = "truck" items = "${trucksList}">
+    <c:forEach var = "order" items = "${ordersList}">
         <tr>
-            <td>${truck.id}</td>
-            <td>${truck.number}</td>
-            <td>${truck.capacity}</td>
-            <td>${truck.driverShiftSize}</td>
-            <td>${truck.currentCity}</td>
-            <td>${truck.status}</td>
+            <td>${order.id}</td>
+            <td>${order.status}</td>
             <td>
-                <a href="/cargoes/${truck.id}">cargoes</a>
+                <a href="/truckInOrder/${order.id}">truck</a>
             </td>
             <td>
-                <a href="/editTruck/${truck.id}">edit</a>
-                <a href="/deleteTruck/${truck.id}">delete</a>
+                <a href="/cargoesInOrder/${order.id}">cargoes</a>
+            </td>
+            <td>
+                <a href="/driversInOrder/${order.id}">drivers</a>
+            </td>
+            <td>
+                <a href="/routePointsInOrder/${order.id}">Route Points</a>
+            </td>
+            <td>
+                <a href="/editOrder/${order.id}">edit</a>
+                <a href="/deleteOrder/${order.id}">delete</a>
             </td>
         </tr>
     </c:forEach>
 </table>
 
-<h2>Add</h2>
-<c:url value="/addTruck" var="addTruck"/>
-<a href="${addTruck}">Add new truck</a>
+<h2>Add Order</h2>
+<c:url value="/addOrder" var="addOrder"/>
+<a href="${addOrder}">Add new order</a>
 <p>
     <c:url value="/trucks" var="trucks"/>
     <a href="${trucks}">Trucks</a>
@@ -57,4 +61,5 @@
     <c:url value="/routePoints" var="routePoints"/>
     <a href="${routePoints}">Route Points</a>
 </p>
+</body>
 </html>

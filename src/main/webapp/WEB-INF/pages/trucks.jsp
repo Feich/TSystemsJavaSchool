@@ -45,9 +45,16 @@
 <h2>Add</h2>
 <c:url value="/addTruck" var="addTruck"/>
 <a href="${addTruck}">Add new truck</a>
-
-<h2>Cargoes</h2>
-<c:url value="/cargoes" var="cargoes"/>
-<a href="${cargoes}">Cargoes</a>
-</body>
+<p>
+    <c:url value="/trucks" var="trucks"/>
+    <a href="${trucks}">Trucks</a>
+    <c:url value="/cargoes" var="cargoes"/>
+    <a href="${cargoes}">Cargoes</a>
+    <c:url value="/orders" var="orders"/>
+    <a href="${orders}">Orders</a>
+    <c:url value="/drivers" var="drivers"/>
+    <a href="${drivers}">Drivers</a>
+    <c:url value="/routePoints" var="routePoints"/>
+    <a href="${routePoints}">Route Points</a>
+</p>
 </html>
