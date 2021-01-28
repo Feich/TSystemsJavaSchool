@@ -15,13 +15,15 @@ public class RoutePoint {
     @Column(name = "city")
     private String city;
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "shipment_point_id")
     private Set<Cargo> cargoesForShipment;
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "discharge_point_id")
     private Set<Cargo> cargoesForDischarge;
+
+    public RoutePoint() {}
 
     public Long getId() {
         return id;

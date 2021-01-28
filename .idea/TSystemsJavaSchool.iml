@@ -76,5 +76,6 @@
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-dbcp:10.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-juli:10.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.4.27.Final" level="project" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
 </module>

@@ -20,12 +20,14 @@ public class OrderDao {
         return entityManager.createQuery("from Order", Order.class).getResultList();
     }
 
-    public void add(Order order) {
+    public Order add(Order order) {
         entityManager.persist(order);
+        entityManager.flush();
+        return order;
     }
 
     public void delete(Order order) {
-        entityManager.remove(entityManager.contains(order) ? order : entityManager.merge(order));
+        entityManager.remove(order);
     }
 
     public void edit(Order order) {
@@ -37,7 +39,7 @@ public class OrderDao {
     }
 
     public List<Order> orderByRoutePoint(Long id) {
-        TypedQuery<Order> query = entityManager.createQuery("from Order o, Cargo c where c.shipmentPoint.id = :id or c.dischargePoint.id = :id", Order.class);
+        TypedQuery<Order> query = entityManager.createQuery("select o from Order o, Cargo c where c.shipmentPoint.id = :id or c.dischargePoint.id = :id", Order.class);
         query.setParameter("id", id);
         return query.getResultList();
     }

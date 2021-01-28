@@ -6,10 +6,10 @@
   Time: 2:35
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>CARGOES</title>
+    <title>Cargoes</title>
 </head>
 <body>
 <h1>Cargoes</h1>
@@ -54,8 +54,6 @@
     <a href="${orders}">Orders</a>
     <c:url value="/drivers" var="drivers"/>
     <a href="${drivers}">Drivers</a>
-    <c:url value="/routePoints" var="routePoints"/>
-    <a href="${routePoints}">Route Points</a>
 </p>
 </body>
 </html>

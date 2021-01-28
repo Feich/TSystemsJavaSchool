@@ -36,7 +36,7 @@ public class RoutePointDao {
     }
 
     public List<RoutePoint> routePointsInOrder(Long id) {
-        TypedQuery<RoutePoint> query = entityManager.createQuery("from Cargo c, RoutePoint r where c.order.id = :id", RoutePoint.class);
+        TypedQuery<RoutePoint> query = entityManager.createQuery("select r from Cargo c, RoutePoint r where c.order.id = :id", RoutePoint.class);
         query.setParameter("id", id);
         return query.getResultList();
     }

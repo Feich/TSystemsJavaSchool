@@ -6,7 +6,7 @@
   Time: 2:35
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>ROUTE POINTS</title>
@@ -26,10 +26,10 @@
             <td>${routePoint.id}</td>
             <td>${routePoint.city}</td>
             <td>
-                <a href="/cargoesForShipment/${routePoint.id}">Cargoes</a>
+                <a href="/cargoesForShipment/${routePoint.id}">Cargoes for shipment</a>
             </td>
             <td>
-                <a href="/cargoesForDischarge/${routePoint.id}">Cargoes</a>
+                <a href="/cargoesForDischarge/${routePoint.id}">Cargoes for discharge</a>
             </td>
             <td>
                 <a href="/orderByRoutePoint/${routePoint.id}">Order</a>
@@ -54,8 +54,6 @@
     <a href="${orders}">Orders</a>
     <c:url value="/drivers" var="drivers"/>
     <a href="${drivers}">Drivers</a>
-    <c:url value="/routePoints" var="routePoints"/>
-    <a href="${routePoints}">Route Points</a>
 </p>
 </body>
 </html>

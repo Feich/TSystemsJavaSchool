@@ -1,0 +1,9 @@
+Main.class
+test\dao\CargoDao.class
+test\dao\LogiDao.class
+test\config\AppInitializer.class
+test\config\HibernateConfig.class
+test\config\WebConfig.class
+test\service\CargoService.class
+test\controller\TrucksAndCargoesController.class
+test\model\Cargo.class

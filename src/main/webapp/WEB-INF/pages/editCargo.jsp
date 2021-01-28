@@ -6,7 +6,7 @@
   Time: 14:18
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <c:if test="${empty cargo.name}">
@@ -28,13 +28,13 @@
         <input type="hidden" name="id" value="${cargo.id}">
     </c:if>
     <label for = "name">Name</label>
-    <input type="text" name="name" id="name">
+    <input type="text" name="name" id="name" required placeholder="Name"
+           value="${!empty cargo.name ? cargo.name : ''}">
     <label for = "weight">Weight</label>
-    <input type="text" name="weight" id="weight">
-    <label for = "truck">Truck</label>
-    <input type="text" name="truck" id="truck">
-    <label for = "order">Order</label>
-    <input type="text" name="order" id="order">
+    <input type="text" name="weight" id="weight" required placeholder="Weight, ton"
+           value="${!empty cargo.name ? cargo.weight : ''}">
+    <%--<label for = "order">Order</label>
+    <input type="text" name="order" id="order" >--%>
     <label for = "shipmentPoint">Shipment Point</label>
     <input type="text" name="shipmentPoint" id="shipmentPoint">
     <label for = "dischargePoint">Discharge Point</label>

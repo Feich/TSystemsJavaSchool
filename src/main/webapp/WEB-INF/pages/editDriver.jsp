@@ -6,7 +6,7 @@
   Time: 14:18
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <c:if test="${empty driver.name}">
@@ -28,15 +28,19 @@
         <input type="hidden" name="id" value="${driver.id}">
     </c:if>
     <label for = "name">Name</label>
-    <input type="text" name="name" id="name">
+    <input type="text" name="name" id="name" required placeholder="Name"
+           value="${!empty driver.name ? driver.name : ''}">
     <label for = "surname">Surname</label>
-    <input type="text" name="surname" id="surname">
+    <input type="text" name="surname" id="surname" required placeholder="Surname"
+           value="${!empty driver.name ? driver.surname : ''}">>
     <label for = "phoneNumber">Phone</label>
-    <input type="text" name="phoneNumber" id="phoneNumber">
+    <input type="text" name="phoneNumber" id="phoneNumber" required placeholder="Phone number"
+           value="${!empty driver.name ? driver.phoneNumber : ''}">>
 <%--    <label for = "hours">Hours</label>
     <input type="text" name="hours" id="hours">--%>
     <label for = "currentCity">Current City</label>
-    <input type="text" name="currentCity" id="currentCity">
+    <input type="text" name="currentCity" id="currentCity" required placeholder="Name"
+           value="${!empty driver.name ? driver.currentCity : ''}">>
 <%--    <label for = "currentTruck">Truck</label>
     <input type="text" name="currentTruck" id="currentTruck">--%>
     <label for = "status">Status</label>

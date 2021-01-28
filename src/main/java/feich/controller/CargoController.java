@@ -1,6 +1,9 @@
 package feich.controller;
 
+import feich.model.CargoWithPoints;
+import feich.model.Order;
 import feich.model.RoutePoint;
+import feich.service.OrderService;
 import feich.service.RoutePointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +18,6 @@ import java.util.List;
 public class CargoController {
 
     private CargoService cargoService;
-    private RoutePointService routePointService;
-
-    @Autowired
-    public void setRoutePointService(RoutePointService routePointService) {
-        this.routePointService = routePointService;
-    }
 
     @Autowired
     public void setCargoService(CargoService cargoService) {
@@ -98,6 +95,15 @@ public class CargoController {
     @PostMapping(value = "/addCargo")
     public void addCargo(@ModelAttribute Cargo cargo) {
         cargoService.add(cargo);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/cargoes");
+    }
+
+    @PostMapping(value = "/addCargoWithPoints/{orderId}")
+    public void addCargoWithPoints(@ModelAttribute("cargoWithPoints") CargoWithPoints cargoWithPoints, @PathVariable("orderId") Long orderId) {
+        cargoService.saveCargo(cargoWithPoints, orderId);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/cargoes");
     }
 
     @GetMapping(value = "/deleteCargo/{id}")

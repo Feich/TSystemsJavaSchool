@@ -931,6 +931,7 @@ SELECT|sys.sys_config
       <Position>4</Position>
       <DataType>enum(&apos;PREPARED&apos;, &apos;, SHIPPED&apos;, &apos;DELIVERED&apos;)|0e</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>&apos;PREPARED&apos;</DefaultExpression>
     </column>
     <column id="292" parent="283" name="truck_id">
       <Position>5</Position>
@@ -939,10 +940,12 @@ SELECT|sys.sys_config
     <column id="293" parent="283" name="shipment_point_id">
       <Position>6</Position>
       <DataType>bigint unsigned|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
     <column id="294" parent="283" name="discharge_point_id">
       <Position>7</Position>
       <DataType>bigint unsigned|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
     <column id="295" parent="283" name="order_id">
       <Position>8</Position>
@@ -987,11 +990,15 @@ SELECT|sys.sys_config
       <ColNames>shipment_point_id</ColNames>
       <RefTableName>route_point</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="305" parent="283" name="discharge_point_id">
       <ColNames>discharge_point_id</ColNames>
       <RefTableName>route_point</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="306" parent="283" name="order_id">
       <ColNames>order_id</ColNames>

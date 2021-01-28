@@ -55,16 +55,17 @@ public class OrderController {
 
     @GetMapping(value = "/addOrder")
     public  ModelAndView addOrderPage() {
+        Order newOrder = orderService.add(new Order("CREATED"));
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editOrder");
+        modelAndView.addObject("order", newOrder);
         return modelAndView;
     }
 
     @PostMapping(value = "/addOrder")
-    public  ModelAndView addOrder(@ModelAttribute Order order) {
+    public  ModelAndView addOrder() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/orders");
-        orderService.add(order);
         return modelAndView;
     }
 
@@ -72,7 +73,7 @@ public class OrderController {
     public ModelAndView deleteOrder(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/orders");
-        orderService.delete(orderService.getById(id));
+        orderService.delete(id);
         return modelAndView;
     }
 }

@@ -1,6 +1,7 @@
 package feich.dao;
 
 import feich.model.Cargo;
+import feich.model.RoutePoint;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +13,7 @@ import java.util.List;
 @Repository
 @ComponentScan(basePackages = "feich")
 public class CargoDao {
-
+    //todo create interfaces and abstract classes
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -23,6 +24,12 @@ public class CargoDao {
     public void add(Cargo cargo) {
         entityManager.persist(cargo);
     }
+
+/*    public void add(Cargo cargo, Long orderId) {
+        entityManager.persist(cargo);
+        *//*entityManager.flush();
+        entityManager.createQuery("update Cargo.order o set order_id = :orderId");*//*
+    }*/
 
     public void delete(Cargo cargo) {
         entityManager.remove(entityManager.contains(cargo) ? cargo : entityManager.merge(cargo));

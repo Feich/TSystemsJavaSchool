@@ -24,13 +24,13 @@ public class OrderService {
     }
 
     @Transactional
-    public void add(Order order) {
-        orderDao.add(order);
+    public Order add(Order order) {
+        return orderDao.add(order);
     }
 
     @Transactional
-    public void delete(Order order) {
-        orderDao.delete(order);
+    public void delete(Long id) {
+        orderDao.delete(orderDao.getById(id));
     }
 
     @Transactional

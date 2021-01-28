@@ -18,12 +18,27 @@ public class Order {
     @Enumerated(value = EnumType.STRING)
     private OrderStatus status;
 
+    //todo change fetchType to lazy
+    @OneToMany(mappedBy = "order", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    private Set<Cargo> cargoes;
+
+    public Order() {
+    }
+
+    public Order(String status) {
+        this.status = OrderStatus.CREATED;
+    }
+
     public Long getId() {
         return id;
     }
 
     public OrderStatus getStatus() {
         return status;
+    }
+
+    public Set<Cargo> getCargoes() {
+        return cargoes;
     }
 
     public void setId(Long id) {
@@ -34,4 +49,11 @@ public class Order {
         this.status = status;
     }
 
+    public void setCargoes(Set<Cargo> cargoes) {
+        this.cargoes = cargoes;
+    }
+
+    public void addCargo(Cargo cargo) {
+        cargoes.add(cargo);
+    }
 }

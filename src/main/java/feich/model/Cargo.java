@@ -31,11 +31,11 @@ public class Cargo {
     @JoinColumn(name = "order_id")
     private Order order;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "shipment_point_id")
     private RoutePoint shipmentPoint;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "discharge_point_id")
     private RoutePoint dischargePoint;
 

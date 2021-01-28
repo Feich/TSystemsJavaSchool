@@ -54,7 +54,5 @@
     <a href="${orders}">Orders</a>
     <c:url value="/drivers" var="drivers"/>
     <a href="${drivers}">Drivers</a>
-    <c:url value="/routePoints" var="routePoints"/>
-    <a href="${routePoints}">Route Points</a>
 </p>
 </html>

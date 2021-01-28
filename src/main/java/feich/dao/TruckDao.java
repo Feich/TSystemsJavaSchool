@@ -42,7 +42,7 @@ public class TruckDao {
     }
 
     public List<Truck> truckInOrder(Long id) {
-        TypedQuery<Truck> query = entityManager.createQuery("from Truck t, Cargo c where c.order.id = :id", Truck.class);
+        TypedQuery<Truck> query = entityManager.createQuery("select t from Truck t, Cargo c where c.order.id = :id", Truck.class);
         query.setParameter("id", id);
         return query.getResultList();
     }

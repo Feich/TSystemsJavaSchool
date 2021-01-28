@@ -6,7 +6,7 @@
   Time: 14:18
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <c:if test="${empty routePoint.id}">
@@ -27,8 +27,8 @@
     <c:if test="${!empty routePoint.id}">
         <input type="hidden" name="id" value="${routePoint.id}">
     </c:if>
-    <label for = "currentCity">Current City</label>
-    <input type="text" name="currentCity" id="currentCity">
+    <label for = "city">Current City</label>
+    <input type="text" name="currentCity" id="city">
     <c:if test="${empty routePoint.id}">
         <input type="submit" value="add routePoint">
     </c:if>

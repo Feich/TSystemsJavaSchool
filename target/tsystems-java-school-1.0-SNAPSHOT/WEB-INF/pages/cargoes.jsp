@@ -9,8 +9,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>CARGOES</title>
+    <title>Cargoes</title>
 </head>
+<body>
 <h1>Cargoes</h1>
 <table>
     <tr>
@@ -53,8 +54,6 @@
     <a href="${orders}">Orders</a>
     <c:url value="/drivers" var="drivers"/>
     <a href="${drivers}">Drivers</a>
-    <c:url value="/routePoints" var="routePoints"/>
-    <a href="${routePoints}">Route Points</a>
 </p>
 </body>
 </html>
