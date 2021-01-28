@@ -38,7 +38,7 @@ public class OrderService {
         orderDao.edit(order);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     public  Order getById(Long id) {
         return orderDao.getById(id);
     }

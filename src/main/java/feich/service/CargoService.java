@@ -1,28 +1,22 @@
 package feich.service;
 
+import feich.dao.CargoDao;
 import feich.dao.OrderDao;
-import feich.dao.RoutePointDao;
 import feich.model.Cargo;
 import feich.model.CargoWithPoints;
 import feich.model.Order;
 import feich.model.RoutePoint;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import feich.dao.CargoDao;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 @Service
 public class CargoService {
 
     private OrderDao orderDao;
     private CargoDao cargoDao;
-    private RoutePointDao routePointDao;
-
-    @Autowired
-    public void setRoutePointDao(RoutePointDao routePointDao) {
-        this.routePointDao = routePointDao;
-    }
 
     @Autowired
     public void setOrderDao(OrderDao orderDao) {
@@ -52,23 +46,23 @@ public class CargoService {
 */
 
     @Transactional
-    public void delete(Cargo cargo) {
-        cargoDao.delete(cargo);
+    public void delete(Long id) {
+        cargoDao.delete(cargoDao.getById(id));
     }
 
     @Transactional
-    public void  edit(Cargo cargo) {
+    public void edit(Cargo cargo) {
         cargoDao.edit(cargo);
     }
 
-    @Transactional(readOnly = true)
-    public  Cargo getById(Long id) {
+    @Transactional
+    public Cargo getById(Long id) {
         return cargoDao.getById(id);
     }
 
     @Transactional(readOnly = true)
     public List<Cargo> cargoesForTruck(Long id) {
-        return  cargoDao.cargoesForTruck(id);
+        return cargoDao.cargoesForTruck(id);
     }
 
     @Transactional(readOnly = true)

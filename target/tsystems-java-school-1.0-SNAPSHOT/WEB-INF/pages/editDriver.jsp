@@ -32,15 +32,15 @@
            value="${!empty driver.name ? driver.name : ''}">
     <label for = "surname">Surname</label>
     <input type="text" name="surname" id="surname" required placeholder="Surname"
-           value="${!empty driver.name ? driver.surname : ''}">>
+           value="${!empty driver.name ? driver.surname : ''}">
     <label for = "phoneNumber">Phone</label>
     <input type="text" name="phoneNumber" id="phoneNumber" required placeholder="Phone number"
-           value="${!empty driver.name ? driver.phoneNumber : ''}">>
+           value="${!empty driver.name ? driver.phoneNumber : ''}">
 <%--    <label for = "hours">Hours</label>
     <input type="text" name="hours" id="hours">--%>
     <label for = "currentCity">Current City</label>
     <input type="text" name="currentCity" id="currentCity" required placeholder="Name"
-           value="${!empty driver.name ? driver.currentCity : ''}">>
+           value="${!empty driver.name ? driver.currentCity : ''}">
 <%--    <label for = "currentTruck">Truck</label>
     <input type="text" name="currentTruck" id="currentTruck">--%>
     <label for = "status">Status</label>

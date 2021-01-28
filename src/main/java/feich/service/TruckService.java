@@ -30,8 +30,8 @@ public class TruckService {
     }
 
     @Transactional
-    public void delete(Truck truck) {
-        truckDao.delete(truck);
+    public void delete(Long id) {
+        truckDao.delete(truckDao.getById(id));
     }
 
     @Transactional
@@ -39,7 +39,7 @@ public class TruckService {
         truckDao.edit(truck);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     public  Truck getById(Long id) {
         return truckDao.getById(id);
     }

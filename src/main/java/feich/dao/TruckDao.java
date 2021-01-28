@@ -30,7 +30,7 @@ public class TruckDao {
     }
 
     public void delete(Truck truck) {
-        entityManager.remove(entityManager.contains(truck) ? truck : entityManager.merge(truck));
+        entityManager.remove(truck);
     }
 
     public void edit(Truck truck) {

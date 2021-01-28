@@ -63,7 +63,7 @@ public class DriverController {
     public ModelAndView deleteDriver(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/drivers");
-        driverService.delete(driverService.getById(id));
+        driverService.delete(id);
         return modelAndView;
     }
 

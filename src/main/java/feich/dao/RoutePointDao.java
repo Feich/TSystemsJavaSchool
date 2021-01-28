@@ -24,7 +24,7 @@ public class RoutePointDao {
     }
 
     public void delete(RoutePoint routePoint) {
-        entityManager.remove(entityManager.contains(routePoint) ? routePoint : entityManager.merge(routePoint));
+        entityManager.remove(routePoint);
     }
 
     public void edit(RoutePoint routePoint) {

@@ -32,7 +32,7 @@ public class CargoDao {
     }*/
 
     public void delete(Cargo cargo) {
-        entityManager.remove(entityManager.contains(cargo) ? cargo : entityManager.merge(cargo));
+        entityManager.remove(cargo);
     }
 
     public void edit(Cargo cargo) {

@@ -117,9 +117,9 @@ public class CargoController {
 
     @GetMapping(value = "/deleteCargo/{id}")
     public ModelAndView deleteCargo(@PathVariable Long id) {
+        cargoService.delete(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cargoes");
-        cargoService.delete(cargoService.getById(id));
         return modelAndView;
     }
 }

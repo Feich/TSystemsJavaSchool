@@ -929,7 +929,7 @@ SELECT|sys.sys_config
     </column>
     <column id="291" parent="283" name="status">
       <Position>4</Position>
-      <DataType>enum(&apos;PREPARED&apos;, &apos;, SHIPPED&apos;, &apos;DELIVERED&apos;)|0e</DataType>
+      <DataType>enum(&apos;PREPARED&apos;, &apos;SHIPPED&apos;, &apos;DELIVERED&apos;)|0e</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;PREPARED&apos;</DefaultExpression>
     </column>

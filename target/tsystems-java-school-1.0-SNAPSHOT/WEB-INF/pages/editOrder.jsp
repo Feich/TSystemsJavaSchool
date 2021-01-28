@@ -65,7 +65,7 @@
         <label for = "name">Name</label>
         <input type="text" name="cargo.name" id="name" required placeholder="Name">
         <label for = "weight">Weight</label>
-        <input type="text" name="cargo.weight" id="weight" required placeholder="Weight">
+        <input type="text" name="cargo.weight" id="weight" required placeholder="Weight, ton">
         <label for = "shipmentPoint.city">Shipment Point</label>
         <input type="text" name="shipmentPoint.city" id="shipmentPoint.city" required placeholder="Shipment Point">
         <label for = "dischargePoint.city">Discharge Point</label>

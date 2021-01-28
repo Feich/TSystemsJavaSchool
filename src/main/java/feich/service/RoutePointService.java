@@ -29,8 +29,8 @@ public class RoutePointService {
     }
 
     @Transactional
-    public void delete(RoutePoint routePoint) {
-        routePointDao.delete(routePoint);
+    public void delete(Long id) {
+        routePointDao.delete(routePointDao.getById(id));
     }
 
     @Transactional
@@ -38,7 +38,7 @@ public class RoutePointService {
         routePointDao.edit(routePoint);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     public  RoutePoint getById(Long id) {
         return routePointDao.getById(id);
     }

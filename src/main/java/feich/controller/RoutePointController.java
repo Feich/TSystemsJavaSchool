@@ -63,7 +63,7 @@ public class RoutePointController {
     public ModelAndView deleteRoutePoint(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/routePoints");
-        routePointService.delete(routePointService.getById(id));
+        routePointService.delete(id);
         return modelAndView;
     }
 

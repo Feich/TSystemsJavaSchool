@@ -25,7 +25,7 @@ public class DriverDao {
     }
 
     public void delete(Driver driver) {
-        entityManager.remove(entityManager.contains(driver) ? driver : entityManager.merge(driver));
+        entityManager.remove(driver);
     }
 
     public void edit(Driver driver) {

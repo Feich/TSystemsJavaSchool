@@ -29,8 +29,8 @@ public class DriverService {
     }
 
     @Transactional
-    public void delete(Driver driver) {
-        driverDao.delete(driver);
+    public void delete(Long id) {
+        driverDao.delete(driverDao.getById(id));
     }
 
     @Transactional
@@ -38,7 +38,7 @@ public class DriverService {
         driverDao.edit(driver);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     public  Driver getById(Long id) {
         return driverDao.getById(id);
     }

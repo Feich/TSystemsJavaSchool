@@ -79,7 +79,7 @@ public class TruckController {
     public ModelAndView deleteTruck(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/trucks");
-        truckService.delete(truckService.getById(id));
+        truckService.delete(id);
         return modelAndView;
     }
 }
