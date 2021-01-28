@@ -18,6 +18,12 @@ import java.util.List;
 public class CargoController {
 
     private CargoService cargoService;
+    private RoutePointService routePointService;
+
+    @Autowired
+    public void setRoutePointService(RoutePointService routePointService) {
+        this.routePointService = routePointService;
+    }
 
     @Autowired
     public void setCargoService(CargoService cargoService) {
@@ -74,12 +80,15 @@ public class CargoController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editCargo");
         modelAndView.addObject("cargo", cargoService.getById(id));
+        modelAndView.addObject("routePoints", routePointService.allRoutePoints());
+        modelAndView.addObject("currentShipmentPoint", cargoService.currentShipmentPoint(id));
+        modelAndView.addObject("currentDischargePoint", cargoService.currentDischargePoint(id));
         return modelAndView;
     }
 
     @PostMapping(value = "/editCargo")
-    public  ModelAndView editCargo(@ModelAttribute("cargo") Cargo cargo) {
-        cargoService.edit(cargo);
+    public  ModelAndView editCargo(@ModelAttribute("cargoWithPoints") CargoWithPoints cargoWithPoints) {
+        cargoService.editCargo(cargoWithPoints);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cargoes");
         return modelAndView;

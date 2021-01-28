@@ -46,13 +46,13 @@
             return false;
         });
 
-/*        $(document).ready(function () {
+        $(document).ready(function () {
             $("#cargoWithPoints").submit(function(e) {
                 e.preventDefault();
                 alert("Cargo Saved!");
             });
             return false;
-        });*/
+        });
     </script>
 
 </head>

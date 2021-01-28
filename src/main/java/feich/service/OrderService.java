@@ -38,11 +38,12 @@ public class OrderService {
         orderDao.edit(order);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public  Order getById(Long id) {
         return orderDao.getById(id);
     }
 
+    @Transactional(readOnly = true)
     public List<Order> orderByRoutePoint(Long id) {
         return orderDao.orderByRoutePoint(id);
     }

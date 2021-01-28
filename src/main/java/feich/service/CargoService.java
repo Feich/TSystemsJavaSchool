@@ -1,9 +1,11 @@
 package feich.service;
 
 import feich.dao.OrderDao;
+import feich.dao.RoutePointDao;
 import feich.model.Cargo;
 import feich.model.CargoWithPoints;
 import feich.model.Order;
+import feich.model.RoutePoint;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +16,18 @@ import java.util.List;
 public class CargoService {
 
     private OrderDao orderDao;
+    private CargoDao cargoDao;
+    private RoutePointDao routePointDao;
+
+    @Autowired
+    public void setRoutePointDao(RoutePointDao routePointDao) {
+        this.routePointDao = routePointDao;
+    }
 
     @Autowired
     public void setOrderDao(OrderDao orderDao) {
         this.orderDao = orderDao;
     }
-    private CargoDao cargoDao;
 
     @Autowired
     public void setCargoDao(CargoDao cargoDao) {
@@ -53,7 +61,7 @@ public class CargoService {
         cargoDao.edit(cargo);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public  Cargo getById(Long id) {
         return cargoDao.getById(id);
     }
@@ -87,4 +95,28 @@ public class CargoService {
         cargo.setOrder(order);
         cargoDao.add(cargo);
     }
+
+    @Transactional
+    public void editCargo(CargoWithPoints cargoWithPoints) {
+        Cargo cargo = cargoWithPoints.getCargo();
+        Cargo oldCargo = cargoDao.getById(cargo.getId());
+        oldCargo.setStatus(cargo.getStatus());
+        oldCargo.setName(cargo.getName());
+        oldCargo.setWeight(cargo.getWeight());
+        /*cargo.setShipmentPoint(cargoWithPoints.getShipmentPoint());
+        cargo.setDischargePoint(cargoWithPoints.getDischargePoint());
+        cargo.setOrder(cargoWithPoints.getOrder());*/
+        cargoDao.edit(oldCargo);
+    }
+
+    @Transactional(readOnly = true)
+    public RoutePoint currentShipmentPoint(Long id) {
+        return cargoDao.getById(id).getShipmentPoint();
+    }
+
+    @Transactional(readOnly = true)
+    public RoutePoint currentDischargePoint(Long id) {
+        return cargoDao.getById(id).getDischargePoint();
+    }
+
 }

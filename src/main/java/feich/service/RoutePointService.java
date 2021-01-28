@@ -38,11 +38,12 @@ public class RoutePointService {
         routePointDao.edit(routePoint);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public  RoutePoint getById(Long id) {
         return routePointDao.getById(id);
     }
 
+    @Transactional(readOnly = true)
     public List<RoutePoint> routePointsInOrder(Long id) {
         return routePointDao.routePointsInOrder(id);
     }

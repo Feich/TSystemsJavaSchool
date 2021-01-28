@@ -66,4 +66,5 @@ public class CargoDao {
         query.setParameter("id", id);
         return query.getResultList();
     }
+
 }

@@ -38,11 +38,12 @@ public class DriverService {
         driverDao.edit(driver);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public  Driver getById(Long id) {
         return driverDao.getById(id);
     }
 
+    @Transactional(readOnly = true)
     public List<Driver> driversInOrder(Long id) {
         return driverDao.driversInOrder(id);
     }

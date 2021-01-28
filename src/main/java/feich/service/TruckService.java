@@ -39,11 +39,12 @@ public class TruckService {
         truckDao.edit(truck);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public  Truck getById(Long id) {
         return truckDao.getById(id);
     }
 
+    @Transactional(readOnly = true)
     public List<Truck> truckInOrder(Long id) {
         return truckDao.truckInOrder(id);
     }
