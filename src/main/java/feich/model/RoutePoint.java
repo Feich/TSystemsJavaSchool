@@ -1,6 +1,7 @@
 package feich.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -15,13 +16,13 @@ public class RoutePoint {
     @Column(name = "city")
     private String city;
 
-    @OneToMany(cascade = {CascadeType.ALL})
+    @OneToMany
     @JoinColumn(name = "shipment_point_id")
-    private Set<Cargo> cargoesForShipment;
+    private Set<Cargo> cargoesForShipment = new HashSet<>();
 
-    @OneToMany(cascade = {CascadeType.ALL})
+    @OneToMany
     @JoinColumn(name = "discharge_point_id")
-    private Set<Cargo> cargoesForDischarge;
+    private Set<Cargo> cargoesForDischarge = new HashSet<>();
 
     public RoutePoint() {}
 

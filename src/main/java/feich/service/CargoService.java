@@ -2,6 +2,7 @@ package feich.service;
 
 import feich.dao.CargoDao;
 import feich.dao.OrderDao;
+import feich.dao.RoutePointDao;
 import feich.model.Cargo;
 import feich.model.CargoWithPoints;
 import feich.model.Order;
@@ -15,8 +16,14 @@ import java.util.List;
 @Service
 public class CargoService {
 
+    private RoutePointDao routePointDao;
     private OrderDao orderDao;
     private CargoDao cargoDao;
+
+    @Autowired
+    public void setRoutePointDao(RoutePointDao routePointDao) {
+        this.routePointDao = routePointDao;
+    }
 
     @Autowired
     public void setOrderDao(OrderDao orderDao) {
@@ -83,8 +90,12 @@ public class CargoService {
     @Transactional
     public void saveCargo(CargoWithPoints cargoWithPoints, Long orderId) {
         Cargo cargo = cargoWithPoints.getCargo();
-        cargo.setShipmentPoint(cargoWithPoints.getShipmentPoint());
-        cargo.setDischargePoint(cargoWithPoints.getDischargePoint());
+        RoutePoint shipmentPoint = cargoWithPoints.getShipmentPoint();
+        RoutePoint dischargePoint = cargoWithPoints.getDischargePoint();
+        cargo.setShipmentPoint(shipmentPoint);
+        cargo.setDischargePoint(dischargePoint);
+        routePointDao.add(shipmentPoint);
+        routePointDao.add(dischargePoint);
         Order order = orderDao.getById(orderId);
         cargo.setOrder(order);
         cargoDao.add(cargo);

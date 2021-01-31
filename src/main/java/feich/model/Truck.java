@@ -1,6 +1,7 @@
 package feich.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -31,10 +32,10 @@ public class Truck {
     private TruckStatus status;
 
     @OneToMany(mappedBy = "truck")
-    private Set<Cargo> cargoes;
+    private Set<Cargo> cargoes = new HashSet<>();
 
     @OneToMany(mappedBy = "truck")
-    private Set<Driver> drivers;
+    private Set<Driver> drivers = new HashSet<>();
 
     public Truck() {}
 
