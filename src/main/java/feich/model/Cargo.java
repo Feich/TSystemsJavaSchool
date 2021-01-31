@@ -66,10 +66,12 @@ public class Cargo {
     }
 
     public void setShipmentPoint(RoutePoint shipmentPoint) {
+        shipmentPoint.getCargoesForShipment().add(this);
         this.shipmentPoint = shipmentPoint;
     }
 
     public void setDischargePoint(RoutePoint dischargePoint) {
+        dischargePoint.getCargoesForDischarge().add(this);
         this.dischargePoint = dischargePoint;
     }
 
