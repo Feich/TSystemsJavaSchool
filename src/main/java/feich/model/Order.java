@@ -1,6 +1,7 @@
 package feich.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,8 +20,8 @@ public class Order {
     private OrderStatus status;
 
     //todo change fetchType to lazy
-    @OneToMany(mappedBy = "order", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    private Set<Cargo> cargoes;
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
+    private Set<Cargo> cargoes = new HashSet<>();
 
     public Order() {
     }
