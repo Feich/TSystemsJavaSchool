@@ -1,5 +1,7 @@
 package feich.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,7 +12,8 @@ public class Cargo {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE,generator="native")
+    @GenericGenerator(name = "native",strategy = "native")
     private Long id;
 
     @Column(name = "name")
