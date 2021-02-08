@@ -94,11 +94,9 @@ public class CargoService {
         RoutePoint dischargePoint = cargoWithPoints.getDischargePoint();
         cargo.setShipmentPoint(shipmentPoint);
         cargo.setDischargePoint(dischargePoint);
-        routePointDao.add(shipmentPoint);
-        routePointDao.add(dischargePoint);
         Order order = orderDao.getById(orderId);
         cargo.setOrder(order);
-        cargoDao.add(cargo);
+        cargoDao.saveCargoWithPoints(cargo, shipmentPoint, dischargePoint);
     }
 
     @Transactional
@@ -108,9 +106,6 @@ public class CargoService {
         oldCargo.setStatus(cargo.getStatus());
         oldCargo.setName(cargo.getName());
         oldCargo.setWeight(cargo.getWeight());
-        /*cargo.setShipmentPoint(cargoWithPoints.getShipmentPoint());
-        cargo.setDischargePoint(cargoWithPoints.getDischargePoint());
-        cargo.setOrder(cargoWithPoints.getOrder());*/
         cargoDao.edit(oldCargo);
     }
 

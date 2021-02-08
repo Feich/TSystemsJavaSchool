@@ -1,5 +1,7 @@
 package feich.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +12,8 @@ public class RoutePoint {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE,generator="native")
+    @GenericGenerator(name = "native",strategy = "native")
     private Long id;
 
     @Column(name = "city")
