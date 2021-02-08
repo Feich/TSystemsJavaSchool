@@ -71,6 +71,5 @@ public class CargoDao {
         entityManager.persist(shipmentPoint);
         entityManager.persist(dischargePoint);
         entityManager.persist(cargo);
-        entityManager.flush();
     }
 }

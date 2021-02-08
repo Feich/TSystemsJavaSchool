@@ -106,9 +106,6 @@ public class CargoService {
         oldCargo.setStatus(cargo.getStatus());
         oldCargo.setName(cargo.getName());
         oldCargo.setWeight(cargo.getWeight());
-        /*cargo.setShipmentPoint(cargoWithPoints.getShipmentPoint());
-        cargo.setDischargePoint(cargoWithPoints.getDischargePoint());
-        cargo.setOrder(cargoWithPoints.getOrder());*/
         cargoDao.edit(oldCargo);
     }
 
