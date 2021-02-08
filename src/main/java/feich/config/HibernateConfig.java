@@ -36,7 +36,6 @@ public class HibernateConfig {
         properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
         properties.put("hibernate.jdbc.batch_size", "5");
         properties.put("hibernate.order_inserts", "true");
-//        properties.put("hibernate.id.new_generator_mappings", "false");
         return properties;
     }
 
