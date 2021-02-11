@@ -1,11 +1,11 @@
 package feich.service;
 
 import feich.dao.TruckDao;
+import feich.model.Truck;
 import feich.service.exception.TruckNumberException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import feich.model.Truck;
 
 import java.util.List;
 
@@ -26,7 +26,11 @@ public class TruckService {
 
     @Transactional
     public void add(Truck truck) throws TruckNumberException {
-        truckDao.add(truck);
+        if (truckDao.allObjects().stream().anyMatch(x -> x.getNumber().equals(truck.getNumber()))) {
+            throw new TruckNumberException("Duplicated truck number: " + truck.getNumber());
+        } else {
+            truckDao.add(truck);
+        }
     }
 
     @Transactional
