@@ -41,10 +41,11 @@
     </tr>
 </c:forEach>
 </table>
-
-<h2>Add</h2>
-<c:url value="/addCargo" var="addCargo"/>
-<a href="${addCargo}">Add new cargo</a>
+<c:if test="${!empty orderId}">
+    <h2>Add</h2>
+    <c:url value="/addCargo" var="addCargo"/>
+    <a href="${addCargo}">Add new cargo</a>
+</c:if>
 <p>
     <c:url value="/trucks" var="trucks"/>
     <a href="${trucks}">Trucks</a>
