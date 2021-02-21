@@ -1,9 +1,9 @@
 package feich.dao;
 
+import feich.model.Truck;
 import feich.service.exception.TruckNumberException;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Repository;
-import feich.model.Truck;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -22,11 +22,7 @@ public class TruckDao {
     }
 
     public void add(Truck truck) throws TruckNumberException {
-        try {
-            entityManager.persist(truck);
-        } catch (Exception e) {
-            throw new TruckNumberException("Duplicated truck number: " + truck.getNumber());
-        }
+        entityManager.persist(truck);
     }
 
     public void delete(Truck truck) {
