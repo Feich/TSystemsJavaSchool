@@ -1,13 +1,13 @@
 package feich.controller;
 
+import feich.model.Cargo;
 import feich.model.CargoWithPoints;
+import feich.service.CargoService;
 import feich.service.RoutePointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import feich.model.Cargo;
-import feich.service.CargoService;
 
 import java.util.List;
 
@@ -69,6 +69,7 @@ public class CargoController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("cargoes");
         modelAndView.addObject("cargoesList", cargoes);
+        modelAndView.addObject("orderId", id);
         return modelAndView;
     }
 
